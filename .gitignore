@@ -1,10 +1,15 @@
 *.class
 
+#remove target maven directories
+target/
+
+#remove bin directories
+bin/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
