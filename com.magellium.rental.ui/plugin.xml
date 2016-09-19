@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.magellium.rental.ui.category"
+            name="Rental">
+      </category>
+      <view
+            category="com.magellium.rental.ui.category"
+            class="com.magellium.rental.ui.views.RentalDataView"
+            id="com.magellium.rental.ui.view"
+            name="Rental Property View"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

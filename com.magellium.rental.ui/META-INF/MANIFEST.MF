@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: com.magellium.rental.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.magellium.rental.ui.RentalUIActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.magellium.rental.core;bundle-version="1.0.0",
+ org.eclipse.swt
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
