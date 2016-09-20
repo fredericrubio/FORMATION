@@ -56,6 +56,7 @@ public class RentalDataView extends ViewPart {
 		groupDates.setLayout(new GridLayout(2, false));
 		
 		Label lblDu = new Label(groupDates, SWT.NONE);
+		lblDu.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		lblDu.setSize(20, 15);
 		lblDu.setText("du :");
 		
