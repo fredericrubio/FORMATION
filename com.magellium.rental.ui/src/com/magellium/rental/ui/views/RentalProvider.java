@@ -7,8 +7,10 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
+import com.magellium.rental.ui.RentalUIActivator;
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
@@ -97,17 +99,39 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	}
 
+//	@Override
+//	public Color getForeground(Object element) {
+//
+//		return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
+//
+//	}
+//
+//	@Override
+//	public Color getBackground(Object element) {
+//		
+//		if (element instanceof RentalAgency) {
+//			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+//		} else if (element instanceof Customer) {
+//			return Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW);
+//		} else if (element instanceof RentalObject ) {
+//			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+//		}
+//		return Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
+//		
+//	}
+	
 	@Override
-	public Color getForeground(Object element) {
-
-		return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
-
-	}
-
-	@Override
-	public Color getBackground(Object element) {
+	public Image getImage(Object element) {
 		
-		return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+		if (element instanceof RentalAgency) {
+			return RentalUIActivator.getDefault().getImageRegistry().get(RentalUIActivator.IMG_AGENCY);
+		} else if (element instanceof Customer) {
+			return RentalUIActivator.getDefault().getImageRegistry().get(RentalUIActivator.IMG_CUSTOMER);
+		} else if (element instanceof RentalObject ) {
+			return RentalUIActivator.getDefault().getImageRegistry().get(RentalUIActivator.IMG_RENTAL_OBJECT);
+		}
+		
+		return RentalUIActivator.getDefault().getImageRegistry().get(RentalUIActivator.IMG_AGENCY);
 		
 	}
 
