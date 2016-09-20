@@ -16,7 +16,7 @@ import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 
-public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider {
+public class RentalProvider extends LabelProvider implements ITreeContentProvider {//, IColorProvider {
 
 	private class Node {
 
@@ -102,20 +102,13 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 //	@Override
 //	public Color getForeground(Object element) {
 //
-//		return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
+//		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 //
 //	}
 //
 //	@Override
 //	public Color getBackground(Object element) {
 //		
-//		if (element instanceof RentalAgency) {
-//			return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
-//		} else if (element instanceof Customer) {
-//			return Display.getCurrent().getSystemColor(SWT.COLOR_YELLOW);
-//		} else if (element instanceof RentalObject ) {
-//			return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
-//		}
 //		return Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
 //		
 //	}

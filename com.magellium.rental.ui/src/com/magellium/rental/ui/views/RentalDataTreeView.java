@@ -46,6 +46,9 @@ public class RentalDataTreeView extends ViewPart {
 		treeViewer.setInput(lCollection);
 		
 		treeViewer.expandAll();
+		
+		// gestion de la sélection
+		getSite().setSelectionProvider(treeViewer);
 
 	}
 

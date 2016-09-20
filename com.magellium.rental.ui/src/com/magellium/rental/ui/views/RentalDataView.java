@@ -1,18 +1,24 @@
 package com.magellium.rental.ui.views;
 
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 
 import com.magellium.rental.core.RentalCoreActivator;
 import com.opcoach.training.rental.Rental;
 import org.eclipse.swt.widgets.DateTime;
 
-public class RentalDataView extends ViewPart {
+public class RentalDataView extends ViewPart implements ISelectionListener {
 
 	Label rentedObjectLabel ; 
 	Label customerName; 
@@ -96,5 +102,36 @@ public class RentalDataView extends ViewPart {
 	public void setFocus() {
 		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * La sélection a changé
+	 */
+	@Override
+	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+
+		if (selection instanceof IStructuredSelection) {
+			Object lObject = ((IStructuredSelection) selection).getFirstElement();
+			
+			if (lObject instanceof Rental) {
+				setRental((Rental) lObject);
+			}
+		}
+	}
+	
+	@Override
+	public void init(IViewSite site) throws PartInitException {
+		
+		super.init(site);
+		
+		site.getPage().addSelectionListener(this);
+	}
+	
+	@Override
+	public void dispose() {
+		
+		super.dispose();
+		
+		getSite().getPage().removeSelectionListener(this);
 	}
 }
