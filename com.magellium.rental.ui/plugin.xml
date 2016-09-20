@@ -22,5 +22,13 @@
             restorable="true">
       </view>
    </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.magellium.rental.ui.perspectives.RentalPerspective"
+            id="com.magellium.rental.ui.perspectives.RentalPerspective"
+            name="Rental">
+      </perspective>
+   </extension>
 
 </plugin>
