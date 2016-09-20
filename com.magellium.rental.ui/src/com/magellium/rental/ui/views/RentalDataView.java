@@ -52,6 +52,7 @@ public class RentalDataView extends ViewPart {
 		customerName = new Label(infoGroup, SWT.BORDER);
 		
 		groupDates = new Group(parent, SWT.NONE);
+		groupDates.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		groupDates.setText("Dates de kication");
 		groupDates.setLayout(new GridLayout(2, false));
 		
@@ -66,10 +67,11 @@ public class RentalDataView extends ViewPart {
 		labelDateFrom.setText("New Label");
 		
 		Label dateTo = new Label(groupDates, SWT.NONE);
+		dateTo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		dateTo.setText("au :");
 		
 		labelDateTo = new Label(groupDates, SWT.NONE);
-		labelDateTo.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		labelDateTo.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
 		labelDateTo.setBounds(0, 0, 55, 15);
 		labelDateTo.setText("New Label");
 		

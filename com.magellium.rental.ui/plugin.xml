@@ -14,6 +14,13 @@
             name="Rental Property View"
             restorable="true">
       </view>
+      <view
+            category="com.magellium.rental.ui.category"
+            class="com.magellium.rental.ui.views.RentalDataTreeView"
+            id="com.magellium.rental.ui.view1"
+            name="Rental Tree"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>
