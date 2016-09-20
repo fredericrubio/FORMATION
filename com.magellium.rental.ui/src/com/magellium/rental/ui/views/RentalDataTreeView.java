@@ -44,6 +44,8 @@ public class RentalDataTreeView extends ViewPart {
 		lCollection.add(lAgency);	
 		
 		treeViewer.setInput(lCollection);
+		
+		treeViewer.expandAll();
 
 	}
 
