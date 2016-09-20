@@ -10,11 +10,15 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.magellium.rental.core.RentalCoreActivator;
 import com.opcoach.training.rental.Rental;
+import org.eclipse.swt.widgets.DateTime;
 
 public class RentalDataView extends ViewPart {
 
 	Label rentedObjectLabel ; 
 	Label customerName; 
+	private Group groupDates;
+	private Label labelDateTo;
+	private Label labelDateFrom;
 	
 	public RentalDataView() {
 		// TODO Auto-generated constructor stub
@@ -26,6 +30,9 @@ public class RentalDataView extends ViewPart {
 		parent.setLayout(new GridLayout(1, false));
 		
 		Group infoGroup = new Group(parent, SWT.NONE);
+		GridData gd_infoGroup = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_infoGroup.widthHint = 137;
+		infoGroup.setLayoutData(gd_infoGroup);
 		
 		infoGroup.setText("Informations");
 		infoGroup.setLayout(new GridLayout(2, false));
@@ -44,6 +51,27 @@ public class RentalDataView extends ViewPart {
 		// Troisième champ : loueur
 		customerName = new Label(infoGroup, SWT.BORDER);
 		
+		groupDates = new Group(parent, SWT.NONE);
+		groupDates.setText("Dates de kication");
+		groupDates.setLayout(new GridLayout(2, false));
+		
+		Label lblDu = new Label(groupDates, SWT.NONE);
+		lblDu.setSize(20, 15);
+		lblDu.setText("du :");
+		
+		labelDateFrom = new Label(groupDates, SWT.NONE);
+		labelDateFrom.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		labelDateFrom.setBounds(0, 0, 55, 15);
+		labelDateFrom.setText("New Label");
+		
+		Label dateTo = new Label(groupDates, SWT.NONE);
+		dateTo.setText("au :");
+		
+		labelDateTo = new Label(groupDates, SWT.NONE);
+		labelDateTo.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		labelDateTo.setBounds(0, 0, 55, 15);
+		labelDateTo.setText("New Label");
+		
 		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
 	}
 
@@ -56,6 +84,9 @@ public class RentalDataView extends ViewPart {
 
 		rentedObjectLabel.setText(r.getRentedObject().getName());
 		customerName.setText(r.getCustomer().getDisplayName());
+		
+		labelDateFrom.setText(r.getStartDate().toString());
+		labelDateTo.setText(r.getEndDate().toString());
 	}
 	
 	@Override
@@ -63,5 +94,4 @@ public class RentalDataView extends ViewPart {
 		// TODO Auto-generated method stub
 
 	}
-
 }

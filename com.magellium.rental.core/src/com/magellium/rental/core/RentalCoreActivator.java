@@ -35,7 +35,7 @@ public class RentalCoreActivator implements BundleActivator {
 	/**
 	 * @return : singleton Rental Agency
 	 */
-	static public RentalAgency getAgency() {
+	public static RentalAgency getAgency() {
 		return rentalAgency;
 	}
 	
