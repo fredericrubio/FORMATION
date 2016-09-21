@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="com.magellium.rental.ui.cmd.CustomerSelection">
+         <iterate>
+            <instanceof
+                  value="com.opcoach.training.rental.Customer">
+            </instanceof>
+         </iterate>
+      </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.magellium.rental.ui.cmd.handler.ConditionalHandler"
+            commandId="org.eclipse.ui.edit.copy">
+         <activeWhen>
+            <reference
+                  definitionId="com.magellium.rental.ui.cmd.CustomerSelection">
+            </reference>
+         </activeWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.magellium.rental.ui.view1?after=additions">
+         <command
+               commandId="org.eclipse.ui.edit.copy"
+               label="Copy"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="com.magellium.rental.ui.cmd.CustomerSelection">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

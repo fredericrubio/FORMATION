@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Cmd
+Bundle-SymbolicName: com.magellium.rental.ui.cmd;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.magellium.rental.ui.cmd.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.expressions;bundle-version="3.5.100",
+ org.eclipse.ui;bundle-version="3.108.0",
+ org.eclipse.swt,
+ com.magellium.rental.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
