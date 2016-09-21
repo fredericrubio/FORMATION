@@ -7,9 +7,9 @@ import org.eclipse.swt.graphics.RGB;
 
 import com.magellium.rental.ui.RentalUIActivator;
 
-public class RentalInitializer extends AbstractPreferenceInitializer {
+public class RentalDefaultValuesInitializer extends AbstractPreferenceInitializer {
 
-	public RentalInitializer() {
+	public RentalDefaultValuesInitializer() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,9 +18,9 @@ public class RentalInitializer extends AbstractPreferenceInitializer {
 
 		IPreferenceStore store = RentalUIActivator.getDefault().getPreferenceStore();
 		
-		store.setDefault(RentalPreference.CUSTOM_COLOR, StringConverter.asString(new RGB(255, 0, 0)));
-		store.setDefault(RentalPreference.RENTAL_COLOR, StringConverter.asString(new RGB(0, 255, 0)));
-		store.setDefault(RentalPreference.OBJECT_COLOR, StringConverter.asString(new RGB(0, 0, 255)));
+		store.setDefault(RentalPreferences.CUSTOM_COLOR, StringConverter.asString(new RGB(255, 0, 0)));
+		store.setDefault(RentalPreferences.RENTAL_COLOR, StringConverter.asString(new RGB(0, 255, 0)));
+		store.setDefault(RentalPreferences.OBJECT_COLOR, StringConverter.asString(new RGB(0, 0, 255)));
 
 	}
 

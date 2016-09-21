@@ -8,13 +8,13 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import com.magellium.rental.ui.RentalUIActivator;
 
-public class RentalPreference extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
+public class RentalPreferences extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
 	public static final String CUSTOM_COLOR = "C_COLOR";
 	public static final String RENTAL_COLOR = "L_COLOR";
 	public static final String OBJECT_COLOR = "O_COLOR";
 	
-	public RentalPreference() {
+	public RentalPreferences() {
 		
 		super(GRID);
 		setPreferenceStore(RentalUIActivator.getDefault().getPreferenceStore());

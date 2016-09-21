@@ -33,7 +33,7 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="com.magellium.rental.ui.preferences.RentalPreference"
+            class="com.magellium.rental.ui.preferences.RentalPreferences"
             id="com.magellium.rental.ui.rental.preference"
             name="Rental Preferences">
       </page>
@@ -41,8 +41,52 @@
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="com.magellium.rental.ui.preferences.RentalInitializer">
+            class="com.magellium.rental.ui.preferences.RentalDefaultValuesInitializer">
       </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.magellium.rental.ui.rental.helloworldcommand"
+            name="Hello World">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.magellium.rental.ui.handler.HelloWorldHandler"
+            commandId="com.magellium.rental.ui.rental.helloworldcommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <command
+               commandId="com.magellium.rental.ui.rental.helloworldcommand"
+               label="Hello World"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.views.ResourceNavigator?after=additions">
+         <command
+               commandId="com.magellium.rental.ui.rental.helloworldcommand"
+               label="Hello World"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.magellium.rental.ui.view1?after=additions">
+         <command
+               commandId="com.magellium.rental.ui.rental.helloworldcommand"
+               label="Hello World"
+               style="push">
+         </command>
+      </menuContribution>
    </extension>
 
 </plugin>

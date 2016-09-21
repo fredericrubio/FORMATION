@@ -16,7 +16,7 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 
 import com.magellium.rental.ui.RentalUIActivator;
-import com.magellium.rental.ui.preferences.RentalPreference;
+import com.magellium.rental.ui.preferences.RentalPreferences;
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
@@ -148,13 +148,13 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 		IPreferenceStore preferenceStore = RentalUIActivator.getDefault().getPreferenceStore();
 		if (element instanceof Customer) {
-			return getColor(preferenceStore.getString(RentalPreference.CUSTOM_COLOR));
+			return getColor(preferenceStore.getString(RentalPreferences.CUSTOM_COLOR));
 		}
 		else if (element instanceof RentalObject) {
-			return getColor(preferenceStore.getString(RentalPreference.OBJECT_COLOR));
+			return getColor(preferenceStore.getString(RentalPreferences.OBJECT_COLOR));
 		}
 		else if (element instanceof Rental) {
-			return getColor(preferenceStore.getString(RentalPreference.RENTAL_COLOR));
+			return getColor(preferenceStore.getString(RentalPreferences.RENTAL_COLOR));
 		}
 		
 		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);	

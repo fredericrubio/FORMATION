@@ -6,10 +6,12 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
@@ -55,7 +57,12 @@ public class RentalDataTreeView extends ViewPart implements IPropertyChangeListe
 		
 		// gestion de la sélection
 		getSite().setSelectionProvider(treeViewer);
-
+		
+		// autoriser le popup
+		MenuManager menuManager = new MenuManager();
+		Menu menu = menuManager.createContextMenu(treeViewer.getControl());
+		treeViewer.getControl().setMenu(menu);
+		getSite().registerContextMenu(menuManager, treeViewer);
 	}
 
 	@Override
