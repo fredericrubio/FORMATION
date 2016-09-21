@@ -21,6 +21,13 @@
             name="Rental Tree"
             restorable="true">
       </view>
+      <view
+            category="com.magellium.rental.ui.category"
+            class="com.magellium.rental.ui.views.CustomerPropertyView"
+            id="com.magellium.rental.ui.customerProperty"
+            name="Customer Property"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
