@@ -6,11 +6,17 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IMemento;
+import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 
 import com.magellium.rental.core.RentalCoreActivator;
+import com.magellium.rental.ui.RentalUIActivator;
 import com.opcoach.training.rental.Address;
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
@@ -18,7 +24,7 @@ import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 import com.opcoach.training.rental.helpers.RentalAgencyGenerator;
 
-public class RentalDataTreeView extends ViewPart {
+public class RentalDataTreeView extends ViewPart implements IPropertyChangeListener  {
 
 	TreeViewer treeViewer;
 	
@@ -53,9 +59,35 @@ public class RentalDataTreeView extends ViewPart {
 	}
 
 	@Override
-	public void setFocus() {
-		// TODO Auto-generated method stub
-
+	public void init(IViewSite site) throws PartInitException {
+		
+		super.init(site);
+		
+		RentalUIActivator.getDefault().getPreferenceStore().addPropertyChangeListener(this);
 	}
 
+	@Override
+	public void dispose() {
+		
+		super.dispose();
+		
+		RentalUIActivator.getDefault().getPreferenceStore().removePropertyChangeListener(this);
+		
+	}
+	@Override
+	public void propertyChange(PropertyChangeEvent event) {
+		
+		if (treeViewer != null) {
+			treeViewer.refresh();
+		}
+		
+	}
+
+	@Override
+	public void setFocus() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

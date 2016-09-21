@@ -26,6 +26,40 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	private class Node {
 
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getOuterType().hashCode();
+			result = prime * result + ((label == null) ? 0 : label.hashCode());
+			result = prime * result + ((rentalAgency == null) ? 0 : rentalAgency.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Node other = (Node) obj;
+			if (!getOuterType().equals(other.getOuterType()))
+				return false;
+			if (label == null) {
+				if (other.label != null)
+					return false;
+			} else if (!label.equals(other.label))
+				return false;
+			if (rentalAgency == null) {
+				if (other.rentalAgency != null)
+					return false;
+			} else if (!rentalAgency.equals(other.rentalAgency))
+				return false;
+			return true;
+		}
+
 		static public final String CUSTOMER = "Clients";
 		static public final String LOCATION = "Locations";
 		static public final String OBJECT = "Objects à louer";
@@ -53,6 +87,10 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 		public String toString() {
 			return label;
+		}
+
+		private RentalProvider getOuterType() {
+			return RentalProvider.this;
 		}
 	}
 
@@ -140,7 +178,7 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	@Override
 	public Color getBackground(Object element) {
 		
-		return Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
+		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 		
 	}
 	
