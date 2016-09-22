@@ -167,19 +167,6 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		
 	}
 
-	private Color getColor(String pStringColor ) {
-		
-		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
-		
-		Color col = colorRegistry.get(pStringColor);
-		
-		if (col == null) {
-			colorRegistry.put(pStringColor, StringConverter.asRGB(pStringColor));
-			col = colorRegistry.get(pStringColor);
-		}
-		return col;
-		
-	}
 	
 	@Override
 	public Color getBackground(Object element) {

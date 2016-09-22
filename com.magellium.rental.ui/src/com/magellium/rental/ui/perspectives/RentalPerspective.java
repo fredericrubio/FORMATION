@@ -5,6 +5,8 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 public class RentalPerspective implements IPerspectiveFactory {
 
+	public static String PERSPECTIVE_ID = "com.magellium.rental.ui.perspectives.RentalPerspective";
+	
 	/**
 	 * Creates the initial layout for a page.
 	 */
