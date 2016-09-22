@@ -1,5 +1,8 @@
-package com.magellium.rental.ui.views;
+package com.magellium.rental.e4.views;
 
+import javax.annotation.PostConstruct;
+
+import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
@@ -24,13 +27,7 @@ import com.magellium.rental.core.RentalCoreActivator;
 import com.opcoach.training.rental.Rental;
 import org.eclipse.swt.widgets.DateTime;
 
-/**
- * 
- * @author fro
- * @deprecated Utilisation désormais de E4
- *
- */
-public class RentalDataView extends ViewPart implements ISelectionListener {
+public class RentalDataView {
 
 	Label rentedObjectLabel ; 
 	Label customerName; 
@@ -42,7 +39,7 @@ public class RentalDataView extends ViewPart implements ISelectionListener {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+	@PostConstruct
 	public void createPartControl(Composite parent) {
 
 		parent.setLayout(new GridLayout(1, false));
@@ -114,43 +111,44 @@ public class RentalDataView extends ViewPart implements ISelectionListener {
 		labelDateTo.setText(r.getEndDate().toString());
 	}
 	
-	@Override
+	@Focus
 	public void setFocus() {
 		// TODO Auto-generated method stub
 
 	}
-
-	/**
-	 * La sélection a changé
-	 */
-	@Override
-	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-
-		if (selection instanceof IStructuredSelection) {
-			Object lObject = ((IStructuredSelection) selection).getFirstElement();
-			
-			if (lObject instanceof Rental) {
-				setRental((Rental) lObject);
-			}
-		}
-	}
 	
-	@Override
-	public void init(IViewSite site) throws PartInitException {
-		
-		super.init(site);
-		
-		site.getPage().addSelectionListener(this);
-	}
-	
-	@Override
-	public void dispose() {
-		
-		super.dispose();
-		
-		getSite().getPage().removeSelectionListener(this);
-	}
-	
+//E34 : gestion sélection à revoir 
+//	/**
+//	 * La sélection a changé
+//	 */
+//	@Override
+//	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+//
+//		if (selection instanceof IStructuredSelection) {
+//			Object lObject = ((IStructuredSelection) selection).getFirstElement();
+//			
+//			if (lObject instanceof Rental) {
+//				setRental((Rental) lObject);
+//			}
+//		}
+//	}
+//	
+//	@Override
+//	public void init(IViewSite site) throws PartInitException {
+//		
+//		super.init(site);
+//		
+//		site.getPage().addSelectionListener(this);
+//	}
+//	
+//	@Override
+//	public void dispose() {
+//		
+//		super.dispose();
+//		
+//		getSite().getPage().removeSelectionListener(this);
+//	}
+//	
 	public void setLabelAsDragSource(final Label label) {
 		
 		DragSource source = new DragSource(label,  DND.DROP_MOVE | DND.DROP_COPY);

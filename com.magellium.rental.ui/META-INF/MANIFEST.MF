@@ -7,8 +7,10 @@ Bundle-Activator: com.magellium.rental.ui.RentalUIActivator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  com.magellium.rental.core;bundle-version="1.0.0";visibility:=reexport,
- org.eclipse.swt
+ org.eclipse.swt,
+ org.eclipse.e4.ui.di
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: com.magellium.rental.ui,
+Export-Package: com.magellium.rental.e4.views,
+ com.magellium.rental.ui,
  com.magellium.rental.ui.perspectives
