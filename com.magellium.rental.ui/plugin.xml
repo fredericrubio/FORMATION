@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="palette" name="palette" schema="schema/palette.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <category
@@ -40,8 +41,14 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="com.magellium.rental.ui.preferences.RentalPreferences"
+            category="com.magellium.rental.ui.preferences.rentalpreferences"
+            class="com.magellium.rental.ui.preferences.DefaultRentalPreferences"
             id="com.magellium.rental.ui.rental.preference"
+            name="Default Rental Preferences">
+      </page>
+      <page
+            class="com.magellium.rental.ui.preferences.RentalPreferences"
+            id="com.magellium.rental.ui.preferences.rentalpreferences"
             name="Rental Preferences">
       </page>
    </extension>
@@ -94,6 +101,19 @@
                style="push">
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="com.magellium.rental.ui.palette">
+      <palette
+            id="com.magellium.rental.ui.defaultPalette"
+            name="Default"
+            paletteClass="com.magellium.rental.ui.palette.DefaultPalette">
+      </palette>
+      <palette
+            id="com.magellium.rental.ui.palette2"
+            name="Moche"
+            paletteClass="com.magellium.rental.ui.palette.MochePalette">
+      </palette>
    </extension>
 
 </plugin>

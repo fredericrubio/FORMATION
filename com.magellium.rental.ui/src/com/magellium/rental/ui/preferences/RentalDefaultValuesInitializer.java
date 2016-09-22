@@ -18,10 +18,12 @@ public class RentalDefaultValuesInitializer extends AbstractPreferenceInitialize
 
 		IPreferenceStore store = RentalUIActivator.getDefault().getPreferenceStore();
 		
-		store.setDefault(RentalPreferences.CUSTOM_COLOR, StringConverter.asString(new RGB(255, 0, 0)));
-		store.setDefault(RentalPreferences.RENTAL_COLOR, StringConverter.asString(new RGB(0, 255, 0)));
-		store.setDefault(RentalPreferences.OBJECT_COLOR, StringConverter.asString(new RGB(0, 0, 255)));
+		store.setDefault(DefaultRentalPreferences.CUSTOM_COLOR, StringConverter.asString(new RGB(255, 0, 0)));
+		store.setDefault(DefaultRentalPreferences.RENTAL_COLOR, StringConverter.asString(new RGB(0, 255, 0)));
+		store.setDefault(DefaultRentalPreferences.OBJECT_COLOR, StringConverter.asString(new RGB(0, 0, 255)));
 
+		// combo fiel editor : on chosit sa valeur par défaut
+		store.setDefault(RentalPreferences.PREF_PALETTE, "com.magellium.rental.ui.palette2");
 	}
 
 }

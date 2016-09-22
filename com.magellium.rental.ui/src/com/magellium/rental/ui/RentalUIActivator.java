@@ -1,7 +1,17 @@
 package com.magellium.rental.ui;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.InvalidRegistryObjectException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.IColorProvider;
+import org.eclipse.swt.internal.win32.GESTURECONFIG;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -27,12 +37,60 @@ public class RentalUIActivator extends AbstractUIPlugin {
 	// The shared instance
 	private static RentalUIActivator plugin;
 	
+	private Map<String, PaletteDesc> paletteManager = new HashMap<String, PaletteDesc>();
+	
+	public Map<String, PaletteDesc> getPaletteManager() {
+		return paletteManager;
+	}
+
 	/**
 	 * The constructor
 	 */
 	public RentalUIActivator() {
 	}
 
+	private void getConfigurationElt() {
+		
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		
+		for (IConfigurationElement elt : reg.getConfigurationElementsFor("org.eclipse.ui.views")) { // analogie avec le fichier xml
+			
+			if (elt.getName().equals("view")) {
+				System.out.println("Plugin: " + elt.getNamespaceIdentifier() + "  Vue: " + elt.getAttribute("id")); // champ du configuration element (cf. ficher xml)
+			}
+			
+		}
+	}
+	
+	private void readPalette() {
+
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+
+		
+		for (IConfigurationElement elt : reg.getConfigurationElementsFor("com.magellium.rental.ui.palette")) { 
+			
+				try {
+					
+					PaletteDesc lPaletteDesc = new PaletteDesc();
+					lPaletteDesc.setId(elt.getAttribute("id"));
+					lPaletteDesc.setName(elt.getAttribute("name"));
+					
+					IColorProvider lColorProvider;
+					lColorProvider = (IColorProvider) elt.createExecutableExtension("paletteClass");
+					lPaletteDesc.setColorProvider(lColorProvider);
+					
+					System.out.println(lPaletteDesc.toString());
+					
+					paletteManager.put(lPaletteDesc.getId(), lPaletteDesc);
+					
+				} catch (InvalidRegistryObjectException | CoreException e) {
+					e.printStackTrace();
+				}
+				
+		}
+
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
@@ -40,6 +98,9 @@ public class RentalUIActivator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		readPalette();
+		
 	}
 
 	/*
