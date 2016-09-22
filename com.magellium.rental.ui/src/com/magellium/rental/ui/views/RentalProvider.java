@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Display;
 
 import com.magellium.rental.ui.RentalUIActivator;
 import com.magellium.rental.ui.preferences.DefaultRentalPreferences;
+import com.magellium.rental.ui.preferences.RentalPreferences;
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
@@ -147,17 +148,22 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	public Color getForeground(Object element) {
 
 		IPreferenceStore preferenceStore = RentalUIActivator.getDefault().getPreferenceStore();
-		if (element instanceof Customer) {
-			return getColor(preferenceStore.getString(DefaultRentalPreferences.CUSTOM_COLOR));
-		}
-		else if (element instanceof RentalObject) {
-			return getColor(preferenceStore.getString(DefaultRentalPreferences.OBJECT_COLOR));
-		}
-		else if (element instanceof Rental) {
-			return getColor(preferenceStore.getString(DefaultRentalPreferences.RENTAL_COLOR));
-		}
-		
-		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);	
+
+		String lID = preferenceStore.getString(RentalPreferences.PREF_PALETTE);
+		IColorProvider lColorProvider = RentalUIActivator.getDefault().getPaletteManager().get(lID).getColorProvider();
+		return lColorProvider.getForeground(element);		
+
+//		if (element instanceof Customer) {			
+//			return getColor(preferenceStore.getString(DefaultRentalPreferences.CUSTOM_COLOR));
+//		}
+//		else if (element instanceof RentalObject) {
+//			return getColor(preferenceStore.getString(DefaultRentalPreferences.OBJECT_COLOR));
+//		}
+//		else if (element instanceof Rental) {
+//			return getColor(preferenceStore.getString(DefaultRentalPreferences.RENTAL_COLOR));
+//		}
+//		
+//		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);	
 		
 	}
 
@@ -178,7 +184,13 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	@Override
 	public Color getBackground(Object element) {
 		
-		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
+		IPreferenceStore preferenceStore = RentalUIActivator.getDefault().getPreferenceStore();
+
+		String lID = preferenceStore.getString(RentalPreferences.PREF_PALETTE);
+		IColorProvider lColorProvider = RentalUIActivator.getDefault().getPaletteManager().get(lID).getColorProvider();
+		return lColorProvider.getBackground(element);		
+
+//		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 		
 	}
 	

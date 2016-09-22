@@ -13,14 +13,12 @@ public class MochePalette implements IColorProvider {
 
 	@Override
 	public Color getForeground(Object element) {
-		Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
-		return null;
+		return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
 	}
 
 	@Override
 	public Color getBackground(Object element) {
-		Display.getCurrent().getSystemColor(SWT.COLOR_DARK_YELLOW);
-		return null;
+		return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_YELLOW);
 	}
 
 }
