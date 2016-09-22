@@ -42,7 +42,7 @@ public class RentalActionBarAdvisor extends ActionBarAdvisor {
 	
 	@Override
 	protected void makeActions(IWorkbenchWindow window) {
-		// TODO Auto-generated method stub
+
 		super.makeActions(window);
 		{
 			preferencesAction = ActionFactory.PREFERENCES.create(window);
