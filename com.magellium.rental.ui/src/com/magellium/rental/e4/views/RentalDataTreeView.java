@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -24,6 +25,8 @@ public class RentalDataTreeView {
 //	@Inject 
 //	private ESelectionService selectionService;
 	
+	static private String MENU_ID = "com.magellium.rental.eap.popupmenuHelloWorld";
+	
 	TreeViewer treeViewer;
 	
 	
@@ -32,7 +35,7 @@ public class RentalDataTreeView {
 	}
 
 	@PostConstruct
-	public void createPartControl(Composite parent, final ESelectionService selectionService) {
+	public void createPartControl(Composite parent, final ESelectionService selectionService, EMenuService menuService) {
 		
 		treeViewer = new TreeViewer(parent);
 		
@@ -66,11 +69,7 @@ public class RentalDataTreeView {
 		});
 		
 		// autoriser le popup
-//E34 : gestion popup		
-//		MenuManager menuManager = new MenuManager();
-//		Menu menu = menuManager.createContextMenu(treeViewer.getControl());
-//		treeViewer.getControl().setMenu(menu);
-//E34		getSite().registerContextMenu(menuManager, treeViewer);
+		menuService.registerContextMenu(treeViewer.getControl(), MENU_ID);
 	}
 
 //E34 : gestion sélection à revoir 
