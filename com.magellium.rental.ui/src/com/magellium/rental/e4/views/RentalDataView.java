@@ -1,10 +1,12 @@
 package com.magellium.rental.e4.views;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
@@ -17,18 +19,15 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.IViewSite;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.ViewPart;
 
-import com.magellium.rental.core.RentalCoreActivator;
 import com.opcoach.training.rental.Rental;
-import org.eclipse.swt.widgets.DateTime;
+import com.opcoach.training.rental.RentalAgency;
 
 public class RentalDataView {
 
+	@Inject
+	private RentalAgency agency;
+	
 	Label rentedObjectLabel ; 
 	Label customerName; 
 	private Group groupDates;
@@ -40,7 +39,7 @@ public class RentalDataView {
 	}
 
 	@PostConstruct
-	public void createPartControl(Composite parent) {
+	public void createPartControl(Composite parent, RentalAgency agency) {
 
 		parent.setLayout(new GridLayout(1, false));
 		
@@ -90,7 +89,8 @@ public class RentalDataView {
 		labelDateTo.setBounds(0, 0, 55, 15);
 		labelDateTo.setText("New Label");
 		
-		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
+		setRental(agency.getRentals().get(0));
+//		setRental(RentalCoreActivator.getAgency().getRentals().get(0));
 		
 		// Drag'n drop
 		setLabelAsDragSource(rentedObjectLabel);
@@ -115,6 +115,15 @@ public class RentalDataView {
 	public void setFocus() {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Inject @Optional
+	public void selectionChanged(@Named(IServiceConstants.ACTIVE_SELECTION) Rental r) {
+		
+		if (r != null) {
+			setRental(r);
+		}
+		
 	}
 	
 //E34 : gestion sélection à revoir 

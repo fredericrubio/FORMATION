@@ -26,6 +26,12 @@ import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 import com.opcoach.training.rental.helpers.RentalAgencyGenerator;
 
+/**
+ * 
+ * @author fro
+ * @deprecated Utilisation désormais de E4
+ *
+ */
 public class RentalDataTreeView extends ViewPart implements IPropertyChangeListener  {
 
 	TreeViewer treeViewer;

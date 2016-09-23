@@ -79,7 +79,7 @@ public class RentalUIActivator extends AbstractUIPlugin {
 					lColorProvider = (IColorProvider) elt.createExecutableExtension("paletteClass");
 					lPaletteDesc.setColorProvider(lColorProvider);
 					
-					System.out.println(lPaletteDesc.toString());
+//					System.out.println(lPaletteDesc.toString());
 					
 					paletteManager.put(lPaletteDesc.getId(), lPaletteDesc);
 					

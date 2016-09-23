@@ -25,6 +25,7 @@ public class RentalAdapterFactory implements IAdapterFactory {
 	@Override
 	public Class<?>[] getAdapterList() {
 		
+		// liste de ce qui est traité
 		return new Class[] {Customer.class};
 		
 	}
