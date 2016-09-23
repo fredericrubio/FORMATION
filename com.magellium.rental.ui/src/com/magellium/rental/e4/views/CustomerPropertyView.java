@@ -4,12 +4,10 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.services.adapter.Adapter;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.IServiceConstants;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
@@ -22,16 +20,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.IViewSite;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.ViewPart;
 
 import com.magellium.rental.core.RentalCoreActivator;
 import com.opcoach.training.rental.Customer;
-import com.opcoach.training.rental.Rental;
-import org.eclipse.swt.widgets.DateTime;
 
 public class CustomerPropertyView {
 
@@ -89,11 +80,14 @@ public class CustomerPropertyView {
 	}
 
 	@Inject @Optional
-	public void selectionChanged(@Named(IServiceConstants.ACTIVE_SELECTION) Customer c) {
+	public void selectionChanged(@Named(IServiceConstants.ACTIVE_SELECTION) Object o, Adapter adapter) {
 		
-		if (c != null) {
-			setCustomerName(c);
+		if (o == null) {
+			return;
 		}
+		
+		Customer c = adapter.adapt(o, Customer.class); 
+		setCustomerName(c);
 		
 	}
 

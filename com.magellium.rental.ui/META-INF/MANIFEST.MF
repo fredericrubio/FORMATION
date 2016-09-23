@@ -13,7 +13,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.ui.workbench,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.e4.ui.services,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ com.magellium.rental.adapters;bundle-version="1.0.0",
+ org.eclipse.e4.core.services;bundle-version="2.0.100"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.magellium.rental.e4.views,
