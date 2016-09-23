@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
 <plugin>
+
    <extension-point id="palette" name="palette" schema="schema/palette.exsd"/>
+
    <extension
          point="org.eclipse.ui.views">
       <category
-            id="com.magellium.rental.ui.category"
-            name="Rental">
+            name="Rental"
+            id="com.magellium.rental.ui.category">
       </category>
       <view
+            name="Rental Property View"
             category="com.magellium.rental.ui.category"
             class="com.magellium.rental.ui.views.RentalDataView"
-            id="com.magellium.rental.ui.view"
-            name="Rental Property View"
-            restorable="true">
+            restorable="true"
+            id="com.magellium.rental.ui.view">
       </view>
       <view
+            name="Rental Tree"
             category="com.magellium.rental.ui.category"
             class="com.magellium.rental.ui.views.RentalDataTreeView"
-            id="com.magellium.rental.ui.view1"
-            name="Rental Tree"
-            restorable="true">
+            restorable="true"
+            id="com.magellium.rental.ui.view1">
       </view>
       <view
+            name="Customer Property"
             category="com.magellium.rental.ui.category"
             class="com.magellium.rental.ui.views.CustomerPropertyView"
-            id="com.magellium.rental.ui.customerProperty"
-            name="Customer Property"
-            restorable="true">
+            restorable="true"
+            id="com.magellium.rental.ui.customerProperty">
       </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
+            name="Rental"
             class="com.magellium.rental.ui.perspectives.RentalPerspective"
-            id="com.magellium.rental.ui.perspectives.RentalPerspective"
-            name="Rental">
+            id="com.magellium.rental.ui.perspectives.RentalPerspective">
       </perspective>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            name="Default Rental Preferences"
             category="com.magellium.rental.ui.preferences.rentalpreferences"
             class="com.magellium.rental.ui.preferences.DefaultRentalPreferences"
-            id="com.magellium.rental.ui.rental.preference"
-            name="Default Rental Preferences">
+            id="com.magellium.rental.ui.rental.preference">
       </page>
       <page
+            name="Rental Preferences"
             class="com.magellium.rental.ui.preferences.RentalPreferences"
-            id="com.magellium.rental.ui.preferences.rentalpreferences"
-            name="Rental Preferences">
+            id="com.magellium.rental.ui.preferences.rentalpreferences">
       </page>
    </extension>
    <extension
@@ -61,15 +62,15 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            id="com.magellium.rental.ui.rental.helloworldcommand"
-            name="Hello World">
+            name="Hello World"
+            id="com.magellium.rental.ui.rental.helloworldcommand">
       </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="com.magellium.rental.ui.handler.HelloWorldHandler"
-            commandId="com.magellium.rental.ui.rental.helloworldcommand">
+            commandId="com.magellium.rental.ui.rental.helloworldcommand"
+            class="com.magellium.rental.ui.handler.HelloWorldHandler">
       </handler>
    </extension>
    <extension
@@ -105,15 +106,22 @@
    <extension
          point="com.magellium.rental.ui.palette">
       <palette
-            id="com.magellium.rental.ui.defaultPalette"
+            paletteClass="com.magellium.rental.ui.palette.DefaultPalette"
             name="Default"
-            paletteClass="com.magellium.rental.ui.palette.DefaultPalette">
+            id="com.magellium.rental.ui.defaultPalette">
       </palette>
       <palette
-            id="com.magellium.rental.ui.palette2"
+            paletteClass="com.magellium.rental.ui.palette.MochePalette"
             name="Moche"
-            paletteClass="com.magellium.rental.ui.palette.MochePalette">
+            id="com.magellium.rental.ui.palette2">
       </palette>
+   </extension>
+   <extension
+         id="com.magellium.rental.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
    </extension>
 
 </plugin>
