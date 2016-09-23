@@ -4,12 +4,16 @@
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_6wlLkMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.ide.perspectivestack">
       <children xsi:type="advanced:Perspective" xmi:id="_6wlLkcgZEeSyMNYR5xypkQ" elementId="com.magellium.rental.eap.perspective.sample">
         <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="com.magellium.rental.eap.partsashcontainer.sample" horizontal="true">
-          <children xsi:type="basic:PartStack" xmi:id="_GgvssIDUEean69C-MEgjAA" elementId="com.magellium.rental.eap.partstack.0">
-            <children xsi:type="basic:Part" xmi:id="_oK9aAIDTEean69C-MEgjAA" elementId="com.magellium.rental.eap.part.agencyview" contributionURI="bundleclass://com.magellium.rental.ui/com.magellium.rental.e4.views.RentalDataTreeView" label="Agency View"/>
+          <children xsi:type="basic:PartStack" xmi:id="_2SVcwIF1Eean69C-MEgjAA" elementId="com.magellium.rental.eap.partstack.0" containerData="60">
+            <children xsi:type="basic:Part" xmi:id="_oK9aAIDTEean69C-MEgjAA" elementId="com.magellium.rental.eap.part.agencyview" containerData="40" contributionURI="bundleclass://com.magellium.rental.ui/com.magellium.rental.e4.views.RentalDataTreeView" label="Agency View" iconURI="platform:/plugin/com.magellium.rental.ui/icons/Agency.png"/>
           </children>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_jdm2oIFuEean69C-MEgjAA" elementId="com.magellium.rental.eap.partsashcontainer.0">
-            <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.magellium.rental.eap.part.sample" contributionURI="bundleclass://com.magellium.rental.ui/com.magellium.rental.e4.views.RentalDataView" label="Properties View"/>
-            <children xsi:type="basic:Part" xmi:id="_XF7vUIFuEean69C-MEgjAA" elementId="com.magellium.rental.eap.part.customerproperties" contributionURI="bundleclass://com.magellium.rental.ui/com.magellium.rental.e4.views.CustomerPropertyView" label="Customer Properties"/>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_jdm2oIFuEean69C-MEgjAA" elementId="com.magellium.rental.eap.partsashcontainer.0" containerData="40">
+            <children xsi:type="basic:PartStack" xmi:id="_Jc-ssIF2Eean69C-MEgjAA" elementId="com.magellium.rental.eap.partstack.1" containerData="60">
+              <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="com.magellium.rental.eap.part.sample" containerData="" contributionURI="bundleclass://com.magellium.rental.ui/com.magellium.rental.e4.views.RentalDataView" label="Properties View" iconURI="platform:/plugin/com.magellium.rental.ui/icons/Rentals.png"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_MCA1QIF2Eean69C-MEgjAA" elementId="com.magellium.rental.eap.partstack.2" containerData="40">
+              <children xsi:type="basic:Part" xmi:id="_XF7vUIFuEean69C-MEgjAA" elementId="com.magellium.rental.eap.part.customerproperties" containerData="" contributionURI="bundleclass://com.magellium.rental.ui/com.magellium.rental.e4.views.CustomerPropertyView" label="Customer Properties" iconURI="platform:/plugin/com.magellium.rental.ui/icons/Customers.png"/>
+            </children>
           </children>
         </children>
       </children>
