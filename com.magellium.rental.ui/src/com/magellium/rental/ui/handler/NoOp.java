@@ -25,7 +25,7 @@ public class NoOp extends AbstractHandler{
 //		state.setValue(Boolean.valueOf(lStatus));
 		State lState2 = command.getState("org.eclipse.ui.commands.toggleState");
 		lState2.setValue(Boolean.valueOf(lStatus));
-				
+				 
 /*		Command command2 = event.getCommand();
 		State lState2 = command2.getState("org.eclipse.ui.commands.toggleState");
 		
