@@ -63,6 +63,19 @@
       <command
             id="com.magellium.rental.ui.rental.helloworldcommand"
             name="Hello World">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:true"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
+      </command>
+      <command
+            defaultHandler="com.magellium.rental.ui.handler.NoOp"
+            id="com.magellium.rental.ui.command"
+            name="NoOp">
+         <state
+               class="org.eclipse.ui.handlers.RegistryToggleState:true"
+               id="org.eclipse.ui.commands.toggleState">
+         </state>
       </command>
    </extension>
    <extension
@@ -99,6 +112,20 @@
                commandId="com.magellium.rental.ui.rental.helloworldcommand"
                label="Hello World"
                style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:com.magellium.rental.ui.view1">
+         <command
+               commandId="com.magellium.rental.ui.rental.helloworldcommand"
+               icon="icons/Customers.png"
+               style="toggle">
+         </command>
+         <command
+               commandId="com.magellium.rental.ui.command"
+               icon="icons/Rentals.png"
+               style="toggle">
          </command>
       </menuContribution>
    </extension>

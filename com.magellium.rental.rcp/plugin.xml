@@ -23,5 +23,30 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="TestCommand"
+            id="fr.home.test.Command"
+            name="Test Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="Addition"
+               label="Test Command">
+            <command
+                  commandId="fr.home.test.Command"
+                  icon="icons/eclipse128.png"
+                  label="Test Command"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
 
 </plugin>
