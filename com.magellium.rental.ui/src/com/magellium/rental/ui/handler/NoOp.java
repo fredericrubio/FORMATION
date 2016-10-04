@@ -21,7 +21,7 @@ public class NoOp extends AbstractHandler{
 		
 		Command command = service.getCommand("com.magellium.rental.ui.rental.helloworldcommand");
 //		State state = command.getState(RegistryToggleState.STATE_ID);
-		lStatus = !lStatus;
+		lStatus = !lStatus; 
 //		state.setValue(Boolean.valueOf(lStatus));
 		State lState2 = command.getState("org.eclipse.ui.commands.toggleState");
 		lState2.setValue(Boolean.valueOf(lStatus));
